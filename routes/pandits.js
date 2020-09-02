@@ -120,10 +120,13 @@ router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log("data in req body", req.user);
+    //sending data to postman
+
     res.json({
-      id: req.pandit.id,
-      name: req.pandit.name,
-      email: req.pandit.email,
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email,
     });
   }
 );
